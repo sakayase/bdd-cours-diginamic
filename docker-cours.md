@@ -46,7 +46,7 @@ Supprimer un conteneur (par exemple avec une BDD) d'un volume ne **supprimera pa
     *-dti mode détaché du conteneur*  
     *-env permet de configurer une variable d'environnement*  
     *-v pour preciser le volume, :/aa permet d'indiquer de travailler dans un dossier nommé 'aa'*  
-    *--net connecter au reseau *
+    *--net connecter au reseau*
     *-p portlocal:portcontainer redirection de port*
     <br>
 
