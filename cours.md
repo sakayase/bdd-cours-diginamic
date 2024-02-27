@@ -59,15 +59,27 @@ Ce n'est pas forcement un id, mais peut etre dérivé d'attributs de la table.
     ATTRIBUT type,
     ...
 )
+    ```
+    > CREATE TABLE clients(id int AUTO_INCREMENT, name varchar(45), surname varchar(45), mail varchar(50) UNIQUE, primary key(id));
+    ```
 
 - INSERT INTO 'table' (ATTRIBUT1, ATTRIBUT2) values (attribut1 value, attribut2 value)  
 *(ATTRIBUT1 et ATTRIBUT2 optionnel, uniquement si on ne veut pas peupler tout l'enregistrement)*
+    ```
+    > INSERT INTO clients VALUES(NULL, 'hervé', 'hervé', 'h@test.com');
+    ```
 
 - SELECT 'attribut' FROM 'table'
+    ```
+    > SELECT * FROM clients;
+    ```
 
 - ALTER TABLE 'nom de table' ADD CONSTRAINT 'nom de la contrainte' \<primary, etc> 'nom du champ'
 
 - DELETE from 'nom de table' *(delete tout le contenu de la table si pas de WHERE)*
+    ```
+    DELETE FROM clients WHERE id=2;
+    ```
 
 - DROP 'nom de table' *(Supprime toute la table)*
 
@@ -92,9 +104,16 @@ _general => a = à
 
 Ces collations sont **cumulables**
 
-# Commandes
+## Generalités
 
-Se connecter au serveur :
+Se connecter à un serveur :
 ```
 mysql -u root -h 172.17.0.3 -p
 ```
+-u : utilisateur
+-h : hôte
+-p : demande le password à la connexion
+
+
+
+Sur Linux, les BDD se trouvent dans **/var/lib/mysql**
