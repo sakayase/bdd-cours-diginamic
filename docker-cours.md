@@ -36,7 +36,7 @@ Supprimer un conteneur (par exemple avec une BDD) d'un volume ne **supprimera pa
     ----
     docker run -ti --name alpine0 -v test:/aa alpine 
     ----
-    docker run -d --name serversql -v courssql:/var/lib/mysql --env MARIADB_ROOT_PASSWORD=1234 mariadb
+    docker run -d --name serversql -v courssql:/var/lib/mysql --net courssql -p 3307:3306 --env MARIADB_ROOT_PASSWORD=1234 mariadb
     ```
 
     *--name 'nom du container'*  
@@ -46,6 +46,8 @@ Supprimer un conteneur (par exemple avec une BDD) d'un volume ne **supprimera pa
     *-dti mode détaché du conteneur*  
     *-env permet de configurer une variable d'environnement*  
     *-v pour preciser le volume, :/aa permet d'indiquer de travailler dans un dossier nommé 'aa'*  
+    *--net connecter au reseau *
+    *-p portlocal:portcontainer redirection de port*
     <br>
 
 - docker attach 'nom du container'
@@ -146,5 +148,16 @@ Supprimer un conteneur (par exemple avec une BDD) d'un volume ne **supprimera pa
 
 ## Network
 
-Créer un reseau permet de beneficier de la résolution DNS sur les conteneurs.
+Créer un reseau permet de beneficier de la résolution DNS sur les conteneurs.  
+Une fois le réseau crée, il faut sur chaque conteneur que l'on veut dans le reseau, utiliser la commande *docker network connect*. Tous les conteneurs sur le reseau pourront se referencer directement par le **nom de leur conteneur** et plus uniquement par ip.  <br>
+Exemple : 
+Au lieu de mettre : 
+```
+mysql -u root -h 172.17.0.3 -p
+```
+On va utiliser : 
+```
+mysql -u root -h serversql -p
+```
 
+Pour faire sortir le reseau, il faut rediriger le port sur le container (*-p avec docker run*) et y acceder avec **localhost:*'portlocal'***

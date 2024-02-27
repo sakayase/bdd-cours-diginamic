@@ -61,6 +61,9 @@ Ce n'est pas forcement un id, mais peut etre dérivé d'attributs de la table.
 )
     ```
     > CREATE TABLE clients(id int AUTO_INCREMENT, name varchar(45), surname varchar(45), mail varchar(50) UNIQUE, primary key(id));
+    ----
+    > CREATE TABLE comptes(id int AUTO_INCREMENT, solde float, id_client int not NULL, primary key(id), constraint FK_clientComptes foreign
+    key(id_client) references clients(id));
     ```
 
 - INSERT INTO 'table' (ATTRIBUT1, ATTRIBUT2) values (attribut1 value, attribut2 value)  
@@ -72,6 +75,8 @@ Ce n'est pas forcement un id, mais peut etre dérivé d'attributs de la table.
 - SELECT 'attribut' FROM 'table'
     ```
     > SELECT * FROM clients;
+    ----
+    > SELECT * FROM clients JOIN comptes ON clients.id=comptes.id_client;
     ```
 
 - ALTER TABLE 'nom de table' ADD CONSTRAINT 'nom de la contrainte' \<primary, etc> 'nom du champ'
@@ -82,6 +87,8 @@ Ce n'est pas forcement un id, mais peut etre dérivé d'attributs de la table.
     ```
 
 - DROP 'nom de table' *(Supprime toute la table)*
+
+- SHOW COLUMNS FROM 'nom de la table';
 
 ## Foreign Keys
 
