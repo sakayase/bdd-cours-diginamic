@@ -12,12 +12,12 @@ Pour l'installer sur Windows, il est necessaire d'avoir **WSL2** d'installé.
 On peut ensuite installer **Docker Desktop** à l'aide de winget.
 
 ## Generalités
-Le volume docker est contenu dans le volume WSL.
-Quitter un conteneur avec 'exit' eteint le conteneur, pour sortir sans l'eteindre il faut utiliser **CTRL + P + Q**.
-On peut identifier les conteneurs par **CONTAINER ID** (*docker ps -a* pour les avoir).
-Créer un volume permet d'avoir une **persistance des données** entre les conteneurs sur un meme volume, et donc aussi d'isoler certains conteneurs d'autres.
-Les volumes sont stockés dans */var/lib/docker/volumes/*
-Supprimer un conteneur (par exemple avec une BDD) d'un volume ne **supprimera pas la BDD contenue sur ce volume**.
+Le volume docker est contenu dans le volume WSL.  
+Quitter un conteneur avec 'exit' eteint le conteneur, pour sortir sans l'eteindre il faut utiliser **CTRL + P + Q**.  
+On peut identifier les conteneurs par **CONTAINER ID** (*docker ps -a* pour les avoir).  
+Créer un volume permet d'avoir une **persistance des données** entre les conteneurs sur un meme volume, et donc aussi d'isoler certains conteneurs d'autres.  
+Les volumes sont stockés dans */var/lib/docker/volumes/*  
+Supprimer un conteneur (par exemple avec une BDD) d'un volume ne **supprimera pas la BDD contenue sur ce volume**.  
 
 ## Commandes
 
